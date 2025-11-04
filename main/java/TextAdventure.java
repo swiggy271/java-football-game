@@ -50,7 +50,7 @@ public class TextAdventure {
                     // p1 choices
                     if (possesion) {
                         // play choices
-                        System.out.print("\nYou have the ball. Choices:\n1. Long forward pass\n2. Short forward pass\n3. RB through middle\n4. RB through edges\n5. Punt\n\nEnter choice: ");
+                        System.out.print("\nYou have the ball. Choices:\n1. Long forward pass\n2. Short forward pass\n3. RB through middle\n4. RB through edges\n5. FG Attempt\n\nEnter choice: ");
                         Ochoice = sc.nextInt();
                     } else {
                         // defense choices
@@ -66,7 +66,7 @@ public class TextAdventure {
 
                     if (!possesion) {
                         // play choices
-                        System.out.print("\nYou have the ball. Choices:\n1. Long forward pass\n2. Short forward pass\n3. RB through middle\n4. RB through edges\n5. Punt\n\nEnter choice: ");
+                        System.out.print("\nYou have the ball. Choices:\n1. Long forward pass\n2. Short forward pass\n3. RB through middle\n4. RB through edges\n5. FG Attempt\n\nEnter choice: ");
                         Ochoice = sc.nextInt();
                     } else {
                         // defense choices
@@ -209,7 +209,7 @@ public class TextAdventure {
                             } else {
                                 if (scrmYds - change < 1) {
                                     // scrimmage passed; first down
-                                    System.out.print("\nGOOD FOR FIRST!!!");
+                                    System.out.print("\nGOOD FOR FIRST!!! YDS GAINED: " + change);
                                     yds -= change;
                                     scrmYds = 10;
                                     down = 1;
