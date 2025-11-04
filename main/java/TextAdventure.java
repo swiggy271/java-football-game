@@ -78,7 +78,9 @@ public class TextAdventure {
                         System.out.print("\nBOTH PLAYERS LOOK NOW!!");
                     }
 
-
+                    // shows both players choices
+                    System.out.print("\n\nOffense chose: " + Ochoice+ "\nDefense chose: " + Dchoice);
+                    
                     // calculate yardage gain or other change
                     switch (Ochoice) {
                         case 1: {
@@ -248,3 +250,4 @@ public class TextAdventure {
 
     }
 }
+
