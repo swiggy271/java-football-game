@@ -40,7 +40,7 @@ public class TextAdventure {
 
 
                 // possesion = true ---- player 1 possesses the ball, p2 starts in the second half
-                if (h = 0)
+                if (h == 0)
                 {
                     possesion = true;
                 }
@@ -270,3 +270,4 @@ public class TextAdventure {
         }
     }
 }
+
