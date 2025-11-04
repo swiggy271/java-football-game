@@ -87,6 +87,9 @@ public class TextAdventure {
                         System.out.print("\nBOTH PLAYERS LOOK NOW!!");
                     }
 
+                    // game stats
+                    System.out.print("\n\n\nPlays left in half:" + (15 - i) + "\nYds to LoS: " + scrmYds + "\nYds to TD: " + yds + "\nDown (/4): " + down + "\np1 score: " + p1Score + "\np2 score: " + p2Score + "\n\nPLAYER 2:");
+                    
                     // shows both players choices
                     System.out.print("\n\nOffense chose: " + Ochoice+ "\nDefense chose: " + Dchoice);
                     
@@ -270,4 +273,5 @@ public class TextAdventure {
         }
     }
 }
+
 
