@@ -192,7 +192,7 @@ public class TextAdventure {
                             down = 1;
                             possesion = !possesion;
                         } else {
-                            if (yds - change < 0) {
+                            if (yds - change < 1) {
                                 // touchdown
                                 System.out.print("\nTOUCHDOWN!!!");
                                 if (possesion) {
@@ -202,7 +202,7 @@ public class TextAdventure {
                                 }
                                 possesion = !possesion;
                             } else {
-                                if (scrmYds - change < 0) {
+                                if (scrmYds - change < 1) {
                                     // scrimmage passed; first down
                                     System.out.print("\nGOOD FOR FIRST!!!");
                                     yds -= change;
@@ -250,4 +250,5 @@ public class TextAdventure {
 
     }
 }
+
 
