@@ -12,6 +12,7 @@ public class TextAdventure {
         int Ochoice = 0;
         int p1Score = 0;
         int p2Score = 0;
+        
         // repeating the game as many times as the user wants
         while(running)
         {
@@ -30,6 +31,7 @@ public class TextAdventure {
                 }
             }
 
+            // 2 halves per game
             for(int h = 0; h < 2; h++) {
                 // reset the game
                 yds = 50;
@@ -87,16 +89,16 @@ public class TextAdventure {
                             // long passing play - high reward but high risk as well
                             switch (Dchoice) {
                                 case 1: {
-                                    if (randPerc.nextInt(101) < 50) {
+                                    if (randPerc.nextInt(101) < 65) {
                                         System.out.print("\nSACKED!!");
-                                        change = 0;
+                                        change = 0;                          
                                     } else {
                                         change = 15;
                                     }
                                     break;
                                 }
                                 case 2: {
-                                    if (randPerc.nextInt(101) < 25) {
+                                    if (randPerc.nextInt(101) < 33) {
                                         System.out.print("\nSACKED!!");
                                         change = 0;
                                     } else if (randPerc.nextInt(101) < 35) {
@@ -107,10 +109,10 @@ public class TextAdventure {
                                     break;
                                 }
                                 case 3: {
-                                    if (randPerc.nextInt(101) < 75) {
+                                    if (randPerc.nextInt(101) < 50) {
                                         System.out.print("\nIncomplete");
                                         change = 0;
-                                    } else if (randPerc.nextInt(101) < 30) {
+                                    } else if (randPerc.nextInt(101) < 33) {
                                         interception = true;
                                     } else {
                                         change = 15;
@@ -232,13 +234,16 @@ public class TextAdventure {
                                 p2Score += 3;
                             }
                             possesion = !possesion;
+                            yds = 100 - yds;
                         } else {
                             System.out.print("\nDOINK!! YIKES!!!!!");
                             possesion = !possesion;
+                            yds = 100 - yds;
                         }
                     }
                 }
             }
+            
             // to repeat
             System.out.print("\n\n\nGAME END!!!\nSCORE:\np1: " + p1Score + "\np2: " + p2Score + "\n\nPlay again? y/n: ");
             if (sc.next() == "n")
@@ -246,9 +251,5 @@ public class TextAdventure {
                 running = false;
             }
         }
-
-
     }
 }
-
-
