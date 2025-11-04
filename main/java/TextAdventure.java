@@ -203,6 +203,9 @@ public class TextAdventure {
                                     p2Score += 6;
                                 }
                                 possesion = !possesion;
+                                yds = 50;
+                                scrmYds = 10;
+                                down = 1;
                             } else {
                                 if (scrmYds - change < 1) {
                                     // scrimmage passed; first down
@@ -215,6 +218,9 @@ public class TextAdventure {
                                         // exceeds down limit
                                         System.out.print("\nTURNOVER!!");
                                         possesion = !possesion;
+                                        yds = 100 - yds;
+                                        scrmYds = 10;
+                                        down = 1;
                                     }
                                     // nothing special just 0+ yds gained
                                     System.out.print("\n" + change + " yds gained");
@@ -226,7 +232,7 @@ public class TextAdventure {
                         }
                     } else {
                         // if punting, scales by distance/2
-                        if (randPerc.nextInt(101) > (100 - (yds / 2))) {
+                        if (randPerc.nextInt(101) < (100 - (yds / 2))) {
                             System.out.print("\nGOOD!");
                             if (possesion) {
                                 p1Score += 3;
@@ -234,7 +240,7 @@ public class TextAdventure {
                                 p2Score += 3;
                             }
                             possesion = !possesion;
-                            yds = 100 - yds;
+                            yds = 50;
                             scrmYds = 10;
                             down = 1;
                         } else {
@@ -257,5 +263,3 @@ public class TextAdventure {
         }
     }
 }
-
-
