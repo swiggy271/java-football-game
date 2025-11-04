@@ -39,8 +39,15 @@ public class TextAdventure {
                 down = 1;
 
 
-                // possesion = true ---- player 1 possesses the balls
-                possesion = true;
+                // possesion = true ---- player 1 possesses the ball, p2 starts in the second half
+                if (h = 0)
+                {
+                    possesion = true;
+                }
+                else
+                {
+                    possesion = false;
+                }
                 for (int i = 0; i < 15; i++) {
                     // game stats
                     System.out.print("\n\n\nPlays left in half:" + (15 - i) + "\nYds to LoS: " + scrmYds + "\nYds to TD: " + yds + "\nDown (/4): " + down + "\np1 score: " + p1Score + "\np2 score: " + p2Score + "\n\nPLAYER 1:");
@@ -102,9 +109,9 @@ public class TextAdventure {
                                         System.out.print("\nSACKED!!");
                                         change = 0;
                                     } else if (randPerc.nextInt(101) < 35) {
-                                        change = 15;
+                                        change = 9;
                                     } else {
-                                        change = 20;
+                                        change = 15;
                                     }
                                     break;
                                 }
@@ -115,7 +122,7 @@ public class TextAdventure {
                                     } else if (randPerc.nextInt(101) < 33) {
                                         interception = true;
                                     } else {
-                                        change = 15;
+                                        change = 10;
                                     }
                                     break;
                                 }
