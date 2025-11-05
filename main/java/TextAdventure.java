@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.Random;
 public class TextAdventure {
@@ -57,7 +58,7 @@ public class TextAdventure {
                     // p1 choices
                     if (possesion) {
                         // play choices
-                        System.out.print("\nYou have the ball. Choices:\n1. Long forward pass\n2. Short forward pass\n3. RB through middle\n4. RB through edges\n5. FG Attempt\n\nEnter choice: ");
+                        System.out.print("\nYou have the ball. Choices:\n1. Long forward pass\n2. Short forward pass\n3. RB through middle\n4. RB through edges\n5. FG Attempt\n6. Punt\n\nEnter choice: ");
                         Ochoice = sc.nextInt();
                     } else {
                         // defense choices
@@ -77,7 +78,7 @@ public class TextAdventure {
 
                     if (!possesion) {
                         // play choices
-                        System.out.print("\nYou have the ball. Choices:\n1. Long forward pass\n2. Short forward pass\n3. RB through middle\n4. RB through edges\n5. FG Attempt\n\nEnter choice: ");
+                        System.out.print("\nYou have the ball. Choices:\n1. Long forward pass\n2. Short forward pass\n3. RB through middle\n4. RB through edges\n5. FG Attempt\n6. Punt\n\nEnter choice: ");
                         Ochoice = sc.nextInt();
                     } else {
                         // defense choices
@@ -100,9 +101,9 @@ public class TextAdventure {
                             // long passing play - high reward but high risk as well
                             switch (Dchoice) {
                                 case 1: {
-                                    if (randPerc.nextInt(101) < 65) {
+                                    if (randPerc.nextInt(101) < 50) {
                                         System.out.print("\nSACKED!!");
-                                        change = 0;                          
+                                        change = -3;                          
                                     } else {
                                         change = 15;
                                     }
@@ -111,7 +112,7 @@ public class TextAdventure {
                                 case 2: {
                                     if (randPerc.nextInt(101) < 33) {
                                         System.out.print("\nSACKED!!");
-                                        change = 0;
+                                        change = -3;
                                     } else if (randPerc.nextInt(101) < 35) {
                                         change = 9;
                                     } else {
@@ -151,6 +152,8 @@ public class TextAdventure {
                             } else {
                                 if (randPerc.nextInt(101) < 25) {
                                     change = 20;
+                                } else if (randPerc.nextInt(101) < 20) {
+                                    interception = true;
                                 } else if (randPerc.nextInt(101) < 50) {
                                     System.out.print("\nIncomplete");
                                     change = 0;
@@ -167,12 +170,17 @@ public class TextAdventure {
                                 if (randPerc.nextInt(101) < 50) {
                                     change = 4;
                                 } else if (randPerc.nextInt(101) < 25) {
-                                    change = 2;
+                                    change = 0;
                                 } else {
                                     change = 7;
                                 }
                             } else {
-                                change = 6;
+                                if (randPerc.nextInt(101) < 50) {
+                                    change = 9;
+                                }
+                                else {
+                                    change = 6;
+                                }
                             }
                         }
                         break;
@@ -189,13 +197,17 @@ public class TextAdventure {
                             }
                         }
                         break;
+                        default:
+                        {
+                            break;
+                        }
                     }
 
                     // debug
                     // System.out.print("\n\n\n\nDEBUG:\nCHANGE:" + change);
 
                     // output & calculate gain
-                    if (Ochoice != 5) {
+                    if (Ochoice != 5 && Ochoice != 6) {
 
                         if (interception) {
 
@@ -212,6 +224,21 @@ public class TextAdventure {
                                     p1Score += 6;
                                 } else {
                                     p2Score += 6;
+                                }
+                                
+                                // 1 pt conversion
+                                System.out.print("\n1 pt conversion attempt");
+                                if (randPerc.nextInt(101) < 80)
+                                {
+                                    System.out.print("\nGOOD!!!");
+                                    if (possesion) {
+                                    p1Score++;
+                                    } else {
+                                    p2Score++;
+                                }
+                                }
+                                else {
+                                    System.out.print("\nDOINK!");
                                 }
                                 possesion = !possesion;
                                 yds = 50;
@@ -242,6 +269,24 @@ public class TextAdventure {
                                     }    
                                 }
                             }
+                        }
+                    
+                    } else if (Ochoice ==6) {
+                        if (randPerc.nextInt(101) < 50) 
+                        {
+                            System.out.print("\nA far punt, play starts at 85");
+                            possesion = !possesion;
+                            yds = 85;
+                            scrmYds = 10;
+                            down = 1;
+                        }
+                        else
+                        {
+                            System.out.print("\nA decent punt, play starts at 70");
+                            possesion = !possesion;
+                            yds = 70;
+                            scrmYds = 10;
+                            down = 1;
                         }
                     } else {
                         // if punting, scales by distance/2
@@ -276,8 +321,3 @@ public class TextAdventure {
         }
     }
 }
-
-
-
-
-
