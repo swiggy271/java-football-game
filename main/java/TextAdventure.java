@@ -234,10 +234,12 @@ public class TextAdventure {
                                         down = 1;
                                     }
                                     // nothing special just 0+ yds gained
+                                    else {
                                     System.out.print("\n" + change + " yds gained");
                                     yds -= change;
                                     scrmYds -= change;
                                     down++;
+                                    }    
                                 }
                             }
                         }
@@ -274,6 +276,7 @@ public class TextAdventure {
         }
     }
 }
+
 
 
 
